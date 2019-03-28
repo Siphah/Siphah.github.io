@@ -3,313 +3,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-   <style media="screen">
-    
-	*{scroll-behavior:smooth;}
-	html,body{
-      height: 100%;
-      width:100%;
-      margin: 0;
-      padding:0;
-      font-family: 'Cuprum', sans-serif;
-	  color: #444;
-    } 
-	.header{
-		position:fixed;
-		width:100%;
-		background:rgba(0,0,0,.8);
-		-webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-       -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-       box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-	   z-index:10;
-		}
-	
-	h1,h2{
-	  text-align : center;
-	}
-	h1,h2,h3{
-	  color: #000;	
-	}
-  a{
-	text-decoration: none;
-    color : #ddd;
-    font-size:20px;
-    margin:5px 15px; 
-   }
-   a:hover{
-	 color:#000;
-	 transition:all 0.3s linear;
-   }
-   nav{
-	  float:right;
-	  margin:1%;
-   }
-   .logo{
-      font-family: 'Pacifico', cursive;
-      border: none;
-      color: red;
-	  margin :1%;
-      text-shadow: 4px 3px 0px #444, 9px 8px 0px rgba(0,0,0,0.15);
-	  float:left;
-    }
-   .mobile-menu,#toggle{
-    display:none;
-    transition: display 0.3s ease-in;
-   }
-  #toggle:checked +  nav{
-    display: block;
-	
-  }
-  .mobile-menu{
-    margin: 10px 20px;
-	position:fixed;
-	z-index:1000;
-  }
-  .mobile-menu span{
-    width:30px;
-    height: 5px;
-    margin: 2px;
-    background: #aaa;
-    display: block;
-  }
-  .landing-title{ 
-      text-shadow: 4px 3px 0px #444, 9px 8px 0px rgba(0,0,0,0.15) ;
-	  margin:1%;
-	  }
-   button{
-	 background:rgba(0,0,0,0.5);
-	 padding:10px;
-	 border:none;
-	 border-radius:10px;
-	 text-transform:uppercase;
-       -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-       -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-       box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-   }
-
-   ul{
-     list-style-type: none;
-     padding: 0;
-     margin: 0;
-    }
-    h1{
-	   margin :4% 0;
-       font-weight: bold;
-	   text-transform: uppercase;
-       text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
-    }
-    .box{
-		background: rgba(255, 255, 255, 0.9);
-       border: 1px solid #c5c5c5;
-       -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-       -moz-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-       box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
-       -webkit-border-radius: 3px;
-       -moz-border-radius: 3px;
-       border-radius: 3px;
-	}
-   .langing-page{
-	  position:relative;
-      background-repeat: no-repeat;
-      background-position: center center;
-      background-size: cover;
-      background-attachment: fixed;
-      width:100%;
-      height: 400px;
-      background-image: url("images/landing-background.jpg");   
-    }
-	.centd-obj{
-	    position: absolute;
-		top:50%;
-		left:50%;
-		-ms-transform: translate(-50% , -50%);; /* IE 9 */
-		-webkit-transform: translate(-50% , -50%); /* Safari 3-8 */
-		transform: translate(-50% , -50%);
-		text-align:center;
-		width:100%;
-    }
-	.folio{
-		margin:auto;
-	}
-	.content{
-	   box-sizing : border-box;
-	   float : left;
-	   width:30.33%;
-	   margin:4% 1.5%;
-	   padding:2%;
-	   border-radius:8px;
-	}
-
-	.content a{ 
-	display : block;
-	text-align:center;
-	font-size:18px;
-	line-height:1.3;
-	color:red;
-	padding:5px 10px;
-	border:1px solid #444;
-	border-radius:5px;
-	background:#eee;
-	font-weight:bold;
-	transition:all 0.5s linear;
-	}
-	.content a ,aside a:hover{
-		color:black;
-	}
-	.content ul{ 
-		font-size:15px;
-		padding:8px 10px;		
-	}
-	.content li{
-		line-height:1.8;
-		list-style:disc;
-	}
-	.content img{
-		width:100%;
-		height:150px;
-	}
-	hr{
-		border-color:black;
-		width:100px;
-	}
-	article{
-		width:99%;
-		margin:0.5%;
-	}
-	article h1{
-		font-size:40px;
-		margin:0;
-		padding:0;
-		
-	}
-
-	article aside{
-		margin:5% 0;
-		width:55%;
-		float:left;
-		padding:2%;
-		box-sizing:border-box;
-		font-size:15px;
-		line-height:1.3;
-		position:relative;
-	}
-	 aside.heading{
-		width:45%;
-		float:left;
-		box-sizing :border-box;
-	 }
-  /****Round image wrapped by text start***************/
-.circ-img-text{
-      width: 100px;
-      height:100px;
-      float:left;
-      margin-right: 1.5em;
-      margin-bottom: 1em;
-      border-radius: 50%;
-      shape-outside:circle();
-   }
-  /****Round image wrapped by text end***************/
-	aside ul li{
-	  display: block;
-      padding:10px;;
-	}
-.social-call a{
-  color: #444;
-  transition:all 0.5s linear;
-
-}
-.contact-sect,footer{
-	float:left; 
-	clear:both; 
-	width:100%
-}
-footer{
-	background:#444;
-	color:#ccc;
-	padding:20px 0;
-	text-align:center;
-}
-footer a{
-	font-size:13px;
-	padding:0 5px;
-}
-    @media screen and (max-width: 800px) {
-		.content{
-			width:46%;
-			padding:2%;
-		}	
-	article h1{
-		margin:0 2%;
-	}
-
-	article aside,aside.heading{
-		margin:5% 0;
-		width:100%;
-		padding:2%;
-	    height:auto;
-	  }	
-	}
-    @media screen and (max-width: 600px) {
-	 nav{ 
-		display:none;
-		background:rgba(0,0,0,.5);
-	 	width:100%;
-	 }
-	.logo{
-	  float:none;
-	  text-align:center;
-	}
-	 nav a{
-		display:block;
-		float:none;
-		text-align:center;
-	 }
-     .mobile-menu{
-       display: block;
-     } 
-		.content{
-			width:96%;
-			margin:3% 4%;
-			padding:2%;
-			
-		}	
-	article h1{
-		margin:0 1%;
-		font-size:30px;
-	}
-
-	article aside{
-		margin:3% 0;
-		width:100%;
-		padding:2%;
-	  }	
-	  
-	 .content h2{
-		font-size:20px;
-	 }
-	 .content .img , .content img{
-		height:100px;
-		}
-     .circ-img-text{
-         width: 90%;
-         height:100px;
-         float:none;
-        margin-right: 1em;
-        margin-bottom: 1em;
-        border-radius: 5px;
-       shape-outside:none;
-     }
-	}
-    </style>
+    <link rel="stylesheet" href="css/style.css">
     <!-- Load an icon library -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Cuprum|Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+
     <title>Siphamandla Frontend Portfolio Website </title>
   </head>
   <body>
-    <section class = "langing-page">
+    <section class = "langing-page" id ="home">
 	<header class = "header ">
        <label class="mobile-menu" for="toggle">
              <span></span>
@@ -323,20 +25,21 @@ footer a{
 			<a href="#about">About</a>
 			<a href="#portfolio">Portfolio</a>
 			<a href="#contacts">Contact Details</a>
-			<a href="#contacts">Resume</a>
+			<a href="resume/Siphamandla.docx" class="resume">Resume</a>
+
 		  <a href ="#home" style ="position:fixed; right:0; z-index:3000; bottom:150px; background:rgba(0,0,0,.3); padding:10px 5px">Return</a>
 		</nav>
 	</header>
-		<div class = "centd-obj" id ="home">
+		<div class = "centd-obj" >
 		     <h1 class ="landing-title">Passionate Frontend Web Developer</h1>
 						
 		     <button type="button" class ="" name="button"><a href="#portfolio">Port-folio</a></button>
 			 
 		</div>
     </section>
-    <section>
+    <section id ="about">
 	
-	<article id ="about">
+	<article >
 		<aside class = "heading">
 		<h1>About Siphamandla</h1>  
 		</aside>
@@ -344,7 +47,7 @@ footer a{
 		 <aside class ="box">
 		  
 		  <blockquote>
-                  <img src="images/Siphamandla.JPG" alt="Author"   class="circ-img-text">                
+                  <img src="images/siphamandla.jpg" alt="Author"   class="circ-img-text">                
      			  My main concern when developing applications is quality and efficiency.
                   I started Computer Programming with C++ fundamentals as self taught in 2016.
                   Doing Computer Engineering with electrical and electronic background made me to be more
@@ -359,19 +62,19 @@ footer a{
 	</section>
     
 	<section class = "folio" >
-		  <h1 id = "portfolio"> HTML5 and Pure CSS Based Website Templates</h1>
-				<hr>
+		  <h1  id= "portfolio"> HTML5 and Pure CSS Based Website Templates</h1>
+				<hr >
           <div class="content box">
             <h2>Photographer Portfolio Website Template</h2>
               <a href='https://photos.google.com/share/AF1QipMPDUz3jAVTUx-CQo0E6OY8rvW8ek_EIHUXztG977jH1XMdf_JHVUFaV_wiGuhWkg?key=dlFlYXpRdzdELTZCcmc2dTJrUW9rNWdwS1lPdkVR&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/DpDuJ81TQzGQ4DJQgTttSE4qVSP5Gz6p26yTWgZK5UDbBS1NBFof1sy6-ltmyJ_RZbUGW-FMkNBAb52Sj55MC8vXTPKuBuBli2QhiBkr7TMjxiK4tDC_XzR2jO9Mn3cxKPGm9n4GeA=w2400' /></a>
 			  
-			  <a href="Templates/Templete1/index.html" target = "_blank" >View Template</a>
-			  <p>
+			  <a class="template" href="templates/Templete1/index.html" target = "_blank" >View Template</a>
+			  <p >
                  <h3>Featured PURE CSS :</h3>
 				 <ul>
-					<li>Top Navigation Menu Bar with Dropdown links on hover </li>
+					<li>Top Navigation Menu Bar with Dropdown links on hover <a href="blog/navigation.html" class="example">See Example</a> </li>
 					<li>Full Screen Video background & background image as fallback</li>
-					<li>Rsponsive grid image gallery with popup lightbox</li>
+					<li>Rsponsive grid image gallery with popup lightbox <a href="blog/Image-gallery-lightbox.html" class="example">See Example</a></li>
 				 </ul>
 				   
               </p>
@@ -380,13 +83,13 @@ footer a{
 
           <div class="content box ">
             <h2> Graphic Designer Portfolio Website Template</h2>
-  <a href='https://photos.google.com/share/AF1QipMhn4Pw32rHhhKpO096yLWdP1c5q2uIpJZ-Py6qsmBbfXn2Ql3WjQYsysqWQp2sZg?key=UktfSy1WMXpTSF9LVXJpTW1lLWxFVzAyRV93NGNR&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/Tmid4F-G2XHBMJykkree8rdd4lahaUgv4z7w9rcnN76d-XQGubm4cCdTooqldD5zkhBCutxRGPnKpIuq--IXoNcsA8h4-B2p5YpYIAP97tdpHcSlcFTLXDqgD42lEWINxkbr6x64gw=w2400' /></a>
+  <a  href='https://photos.google.com/share/AF1QipMhn4Pw32rHhhKpO096yLWdP1c5q2uIpJZ-Py6qsmBbfXn2Ql3WjQYsysqWQp2sZg?key=UktfSy1WMXpTSF9LVXJpTW1lLWxFVzAyRV93NGNR&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/Tmid4F-G2XHBMJykkree8rdd4lahaUgv4z7w9rcnN76d-XQGubm4cCdTooqldD5zkhBCutxRGPnKpIuq--IXoNcsA8h4-B2p5YpYIAP97tdpHcSlcFTLXDqgD42lEWINxkbr6x64gw=w2400' /></a>
 
-			<a href="Templates/Templete2/index.html" target = "_blank" >View Template</a>
+			<a class="template" href="templates/Templete2/index.html" target = "_blank" >View Template</a>
                  <h3>Featured PURE CSS :</h3>
 				 <ul>
 					<li>Stick Top Navigation Menu Bar </li>
-					<li>Smooth parallex scroll</li>
+					<li>Smooth parallex scroll </li>
 					<li>Very unique Circular skills bar </li>
 					<li>Beautiful see through design</li>
 				 </ul>
@@ -394,21 +97,82 @@ footer a{
 
           <div class="content box">
             <h2>Blogger  Minimalistic Website Template</h2>           
-  <a href='https://photos.google.com/share/AF1QipNk1nXHxUkPQQAcjI9lzE28gmJFFhXrNk_DRbK0neMBYcKGaK11xzQX_BIDnkiejg?key=TXdyaGdaUWtZYTJzUXl6aHhDRWtRRjQ3a1BEM1RB&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/Ub0MWF7UNLohtLp-ppKMCOyR6zhMKxft95kbr5gMG8gn8L3fW4WNTBYtBv_Gx88hhJm7JhMJo4mr1EhWzJxo4-pgSuN3dgHnMTI9YofW_LtOmd-JHGsqNCJoSiquzZ3qd_egLyrt8g=w2400' /></a>
-             <a href="Templates/Templete3/index.html" target = "_blank" >View Template</a>
+  <a  href='https://photos.google.com/share/AF1QipNk1nXHxUkPQQAcjI9lzE28gmJFFhXrNk_DRbK0neMBYcKGaK11xzQX_BIDnkiejg?key=TXdyaGdaUWtZYTJzUXl6aHhDRWtRRjQ3a1BEM1RB&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/Ub0MWF7UNLohtLp-ppKMCOyR6zhMKxft95kbr5gMG8gn8L3fW4WNTBYtBv_Gx88hhJm7JhMJo4mr1EhWzJxo4-pgSuN3dgHnMTI9YofW_LtOmd-JHGsqNCJoSiquzZ3qd_egLyrt8g=w2400' /></a>
+             <a class="template" href="templates/Templete3/index.html" target = "_blank" >View Template</a>
                   <h3>Featured PURE CSS :</h3>
-				 <ul>
-					<li>Clickable Menu Sidebar </li>
+				 <ul >
+					<li>Clickable Menu Sidebar <a href="blog/sidebar.html" class="example">See Example</a> </li>
 					<li>Pagination</li>
 					<li>Youtube video iframe</li>
 				 </ul>
           </div>
- 
-	
     </section>
+	<section class = "folio" >
+		  <h1  id= "portfolio"> VanillaJS Based Website Templates</h1>
+				<hr >
+          <div class="content box">
+            <h2>Electronic Busness Template</h2>
+<a  href='https://photos.google.com/share/AF1QipOyX7t-m_NQrNXdaENztc8f_A70RvjeqpFxrU-nRBplE3Y0qmGw99b3o_WVHKMCFQ?key=MEplQnFzT3ItUXp5YXFTS1lHcnh4RVhZTzdYemd3&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/1kt-7ii5720LMr9DTD86uF3KNWfPf4nS5f0hy3-l0v1QFmPKGRYRUZ7Ckj2fCFQOtTGng7X0nfBL1xrMTbOkp5zWQGtXCJOiPNgujGlEIaeYhboo1nq2dUIuh6kq-RKbRVxFti6gxQ=w2400' /></a>
+			  <a class="template" href="templates/Templete4/index.html" target = "_blank" >View Template</a>
+			  <p >
+                 <h3>Featured VanillaJS :</h3>
+				 <ul>
+				    <li>Full screen Navigation when menu Icon Clicked</li>
+					<li>Image Slider with Grid Photo Gallery  <a class="example" href="blog/image-slider.html">See Example</a> </li>
+					<li>Crossbrowser Compatible Smooth Page Scroll <a class="example" href="blog/smoothscroll-vanilla.html">See Example</a> </li>
+					<li>Parallex Scroll</li>
+				 </ul>
+				   
+              </p>
+		  </div>
+          
 
-	<section class ="contact-sect" >
-	<article id = "contacts">
+          <div class="content box ">
+            <h2> Frontend Website Developer Template</h2>
+  <a  href='https://photos.google.com/share/AF1QipPdggh7ThEX2a_4X1zD5LWqpPiyRxQLlboEF1jVfgQ-tAECdpUis8wzkA5IqHCeuw?key=N2pxYmVFcEsxcDJhcXN1b1dJcVBBS1BmbF9kVS1n&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/Zjidu_Wcbug5pmsFbRckjzZOwKH6j9n5IEodgmJ_IxL7AkLJathBdlMKvhHkubi-EbxFJWFJVCncMGkxx5IZS_cnTCzX5klrYr7kSnH_HJZ_uq-Y6Xr5ElmxggZbTm54S47CAr8YwQ=w2400' /></a>
+
+			<a class="template" href="templates/Templete5/index.html" target = "_blank" >View Template</a>
+                 <h3>Featured VanillaJS :</h3>
+				 <ul>
+					<li>Caresoul</li>
+					<li>Responsive grid image gallery with popup modal <a class="example" href="blog/modal-javascript.html">See Example</a></li>
+					<li>Crossbrowser Compatible Smooth Page Scroll <a class="example" href="blog/smoothscroll-vanilla.html">See Example</a> </li>
+				 </ul>
+          </div>
+
+          <div class="content box">
+            <h2>Real Estate Landing Page</h2>           
+  <a  href='https://photos.google.com/share/AF1QipOwCxq9UPYZMke1pgev2MA9rd5o379abBiXCOOyTduhvb0ZmGvXUr-NjgLB6ooqVQ?key=WHVHRGhaOF9lUG9GZGpOU291d3ZTMjFZT3dEZFFB&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/Znvj7zalIyxHmdmmPodmG1zaB4qI_dU3_ytnzqq319PYuPaKKslnnfnqQqN_Ace8mvH_lc67Kdz4UKA59knu-dEus1d8mC3R66--Yj3dBKFXZYlFTs9CCW-GlrNfyV1t8fudexm6KA=w2400' /></a>
+             <a class="template" href="templates/Templete6/index.html" target = "_blank" >View Template</a>
+                  <h3>Featured VanillaJS :</h3>
+				 <ul >
+					<li>Collapseble Menu Sidebar <a href="blog/sidebar.html" class="example">See Example</a></li>
+					<li>Clickable Menu Navigation on mobile Devices</li>
+					<li>Responsive grid image gallery with popup  modal <a class="example" href="blog/modal-javascript.html">See Example</a></li>
+				 </ul>
+          </div>
+    </section>
+	<section class = "folio" >
+		  <h1  id= "portfolio"> Bootstrap Based Website Templates</h1>
+				<hr >
+          <div class="content box">
+            <h2>Busness Services Template</h2>
+<a href='https://photos.google.com/share/AF1QipOfAprPiP3VyG6dkOEpAYQPjyEfRAOW7sG3mq_Hx19OqQC8vWcooxXmVKzuN2jE3A?key=WnQ1aFI3eW91dmJzdTU1ajVVdkpmMEY4cnBSWVFR&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/PhtPCx-o0-X1pResfVxLWtoXy72kOwXl63cgkGcmvn4Y8L0e3vgX1j3jQc1Z0JnU4v0CiMqyijfy7262A-pHGb0iUvZ1dA_3nxLsY7dCdCJKUq3vgm3Wtd7iZXREYzyKm2zEbSzbnw=w2400' /></a>
+			  <a class="template" href="templates/Templete7/index.html" target = "_blank" >View Template</a>
+			  <p >
+                 <h3>Featured Bootstrap :</h3>
+				 <ul>
+				    <li>Fixed Navigation <a class="example" href="blog/bs-nav.html">See Example</a></li>
+					<li>Pop up Modal Form <a class="example" href="blog/bs-modal.html">See Example</a></li>
+					<li>Caresoul <a class="example" href="blog/bs-carousel.html">See Example</a></li>
+					<li>Jquery Pagescrop</li>
+				 </ul>
+				   
+              </p>
+		  </div>
+    </section>
+	<section class ="contact-sect" id = "contacts" >
+	<article >
 		<aside class= "heading">
 		<h1 >Contact Details</h1>
 		</aside>
@@ -439,6 +203,32 @@ footer a{
 		    <a href="#"><i class="fa fa-fw fa-linkedin"> </i></a>
 		
 	</footer>	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
 
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
   </body>
 </html>
