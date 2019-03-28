@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>lightbox Image Gallery</title>
+    <style>
+ /************GALLERY STARTS**************/
+ html,body{
+     width:100%;
+     height:100%; /*SO WE CAN % HEIGHTS FOR ELEMENTS*/
+ }
+ .container{
+    height:100%;/*SO WE CAN % HEIGHTS FOR ELEMENTS INSIDE THIS CLASS*/
+    width:100%;
+    display: table;/*NEEDED FOR CENTERING TO OCCUR*/
+ }
+ /*CENTERING THE GRID IMAGE GALLERY*/
+ .grid-wrapper{
+     display: table-cell;/*NEEDED FOR CENTERING TO OCCUR*/
+     text-align: center;/*HORIZONTALLY CENTERING GALLERY*/
+     vertical-align: middle;/*VERTICALLY CENTERING GALLERY*/
+     width: 100%;
+     float: left;
+    }
+.grid-cols{
+      width:24%;/*4 COLUMNS*/
+      padding: 1.5% 0 2% 0;
+      margin:0.5%;
+      float: left;/*IMAGES ALIGN HORIZONTALLY*/
+      background-color: #969fae;
+      border-radius: 5px;
+    }
+.modal-overall::before{
+      content: '';
+      position: fixed; /*MODAL CONTAINER IS SHOWN EVEN WHEN PAGE SCROLLED*/
+      /*DARK FULL SCREEN BACKGROUND*/
+      top:0;
+      left:0;
+      height: 100%;
+      width:100%;
+      background-color:rgba(0,0,0,0.8);/*DARKEN FULLSCREEN BACKGROUND*/
+      display:none;/*HIDE THE MODAL CONTAINER ON DEFAULT */
+}
+.modal-wrapper{
+    position: fixed; /*KEEP SHOWING MODAL EVEN WHEN PAGES IS SCROLLED*/
+    background-color: white;
+    width: 70%;
+    max-width: 400px;
+    padding: 20px;
+    left:50%;
+    border:1px solid black;
+    border-radius: 5px;
+    transform: translate(-50%,-200%); /*HIDE THE MODAL ON DEFAULT */
+    -webkit-transform: translate(-50%,-200%);
+    -ms-transform: translate(-50%,-200%);
+    -webkit-transition: -webkit-transform 200ms ease-out;
+    -ms-transition: -ms-transform 200ms ease-out;
+    transition:transform 200ms ease-out; /*ANIMATION THE POP UP*/
+    z-index: 1000; /*MODAL APPEAR INFRONT OF GRID IMAGE*/
+}
+.modal-overall:target > .modal-wrapper{
+  top:20%;
+  transform: translate(-50%,0); /*SHOW MODAL CONTENT WHEN USER CLICKS THE GRID IMAGE(WHICH IS UNDERA ANCHOR*/
+  -webkit-transform: translate(-50%,0);
+  -ms-transform: translate(-50%,0);
+}
+.modal-overall:target:before{
+  content:'';
+  display:block; /*DISPLAY THE MODAL CONTAINER WHEN THE USER CLICK THE GRID IMAGE*/
+}
+
+.resp-image{
+  width: 100%;
+}
+.thumb{
+  width:100%;
+  transform: scale(1);
+  transition: transform 400ms ease-in;
+}
+.thumb:hover{
+    transform: scale(.95);
+}
+
+ a{
+	color: #d7ac28;
+ }
+
+.grid-cols>p{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    background-color: rgba(0,0,0,0.2);
+    border-radius: 3px;
+    width:80%;
+    color:silver;
+    margin: 0 auto;
+  }
+  /************GALLERY ENDS**************/   
+    </style>
+</head>
+<body>
+        <div class="container">
+                <h1>PORTFOLIO PHOTO GALLERY</h1>
+                                <hr/>
+                      <!--START GRID GALLERY -->
+                        <div class="grid-wrapper">
+                
+                                <!--grid image gallery-->
+                                <div class="grid-cols">
+                                      <a href="#open-modal-1"><div id="pic1"><img src="images/image1.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                                      <p>caption</p>
+                                </div>
+                
+                                <!--modal window-->
+                                <div class="modal-overall" id='open-modal-1'>
+                                      <div class="modal-wrapper">
+                                            <p>
+                                              <img src="images/image1.jpg" alt="modal" class="resp-image"height="200">
+                                            <p >caption</p>
+                                           </p>
+                                           <p><a href="#pic1">exit</a></p>
+                                     </div>
+                             </div>
+                
+                            <!--grid image gallery-->
+                            <div class="grid-cols">
+                                      <a href="#open-modal-2"><div id="pic2"><img src="images/image2.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                                      <p class="caption" >caption</p>
+                            </div>
+                
+                            <!--modal window-->
+                            <div class="modal-overall" id='open-modal-2'>
+                                    <div class="modal-wrapper">
+                                          <p>
+                                              <img src="images/image2.jpg" alt="modal" class="resp-image"  height="200">
+                                             <p >caption</p>
+                                         </p>
+                                         <p><a href="#pic2">exit</a></p>
+                                   </div>
+                            </div>
+                
+                              <!--grid image gallery-->
+                              <div class="grid-cols">
+                                      <a href="#open-modal-3"><div id="pic3"><img src="images/image3.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                                      <p class="caption" >caption</p>
+                              </div>
+                
+                              <!--modal window-->
+                              <div class="modal-overall" id='open-modal-3'>
+                                    <div class="modal-wrapper">
+                                       <p>
+                                          <img src="images/image3.jpg" alt="modal" class="resp-image"  height="200">
+                                       <p >caption</p>
+                                       </p>
+                                       <p><a href="#pic3">exit</a></p>
+                                   </div>
+                             </div>
+                
+                            <!--grid image gallery-->
+                            <div class="grid-cols">
+                                <a href="#open-modal-4"><div id="pic4"><img src="images/image4.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                                <p class="caption" >caption</p>
+                           </div>
+                
+                           <!--modal window-->
+                           <div class="modal-overall" id='open-modal-4'>
+                                 <div class="modal-wrapper">
+                                 <p>
+                                      <img src="images/image4.jpg" alt="modal" class="resp-image"  height="200">
+                                      <p >caption</p>
+                                  </p>
+                                    <p><a href="#pic4">exit</a></p>
+                               </div>
+                              </div>
+                
+                              <!--grid image gallery-->
+                              <div class="grid-cols">
+                                  <a href="#open-modal-5"><div id="pic5"><img src="images/image5.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                                  <p class="caption" >caption</p>
+                             </div>
+                
+                              <!--modal window-->
+                              <div class="modal-overall" id='open-modal-5'>
+                                          <div class="modal-wrapper">
+                                             <p>
+                                                 <img src="images/image5.jpg" alt="modal" class="resp-image"  height="200">
+                                                 <p >caption</p>
+                                             </p>
+                                             <p><a href="#pic5">exit</a></p>
+                                          </div>
+                                </div>
+                
+                                <!--grid image gallery-->
+                                <div class="grid-cols">
+                                      <a href="#open-modal-6"><div id="pic6"><img src="images/image6.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                                      <p class="caption" >caption</p>
+                                </div>
+                
+                               <!--modal window-->
+                                <div class="modal-overall" id='open-modal-6'>
+                                        <div class="modal-wrapper">
+                                                <p>
+                                                   <img src="images/image6.jpg" alt="modal" class="resp-image"  height="200">
+                                                   <p >caption</p>
+                                               </p>
+                                               <p><a href="#pic6">exit</a></p>
+                                       </div>
+                                </div>
+                
+                               <!--grid image gallery-->
+                                <div class="grid-cols">
+                                        <a href="#open-modal-7"><div id="pic7"><img src="images/image7.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                                        <p class="caption" >caption</p>
+                               </div>
+                
+                              <!--modal window-->
+                              <div class="modal-overall" id='open-modal-7'>
+                                      <div class="modal-wrapper">
+                                              <p>
+                                                    <img src="images/image7.jpg" alt="modal" class="resp-image"  height="200">
+                                                   <p >caption</p>
+                                              </p>
+                                              <p><a href="#pic7">exit</a></p>
+                                       </div>
+                              </div>
+                
+                             <!--grid image gallery-->
+                             <div class="grid-cols"  id="pic8" >
+                                         <a href="#open-modal-8"><div ><img src="images/image8.jpg" class="thumb" alt="modal" height="200"></div> </a>
+                                         <p class="caption" >caption</p>
+                             </div>
+                
+                             <!--modal window-->
+                                    <div class="modal-overall" id='open-modal-8'>
+                                         <div class="modal-wrapper">
+                                              <p>
+                                                  <img src="images/image8.jpg" alt="modal" class="resp-image"  height="200">
+                                                  <p >caption</p>
+                                             </p>
+                                              <p><a href="#pic8">exit</a></p>
+                                        </div>
+                                   </div>
+                          </div>
+                          <!--END GRID GALLERY -->
+                  </div>   
+</body>
+</html>
