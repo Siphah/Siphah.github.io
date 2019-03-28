@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css Top Navigation </title>
+    <style>
+html,body,.container{
+      height: 100%;
+      width:100%;
+      margin: 0;
+      padding:0;
+      font-family: 'Cuprum', sans-serif;
+      font-size: 100%;
+      line-height: 1.3;
+    }
+.container{
+      width:99%;
+      margin: 1% 0.5% 0 0.5%;
+      background-image: url('images/image1.jpg');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+ /*--NAVIGATION-START--*/
+a{
+  text-decoration: none;
+}
+ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+ul li a{
+  color:#fff;
+}
+.logo{
+     float: right;
+     margin-top:-3px;
+     margin-right: 10px;
+     color:azure;
+}
+nav{
+  background-color:rgba(105, 52, 96, 0.507);
+  border-radius: 8px 8px 0 0px;
+  padding: 0.5% 0;
+}
+
+ul.major{
+  text-align: center; /*ALIGN MENU LINKS IN CENTER OF NAVIGATION*/
+
+}
+ ul.minor{
+   position: absolute; /* ALLOW DROPDOWN MENU TO OVERFLOW FROM THE TOP NAV*/
+   padding-top: 1%;
+   padding-bottom: 10px;
+   transform: scale(0); /*HIDE DROPDOWN MENU BY DEFAULT*/
+   transition: transform 0.3s ease-in;
+   z-index: 1000; /*ALL DROPDOWN TO STACK INFRONT OF THE MAIN PAGE*/
+ }
+
+.dropdown:hover +  ul.minor,ul.minor:hover{
+   transform: scale(1); /*SHOW DROPDOWN MENU ON HOVER */
+}
+ /*--the nav menu links appears horizontally--*/
+ ul.major  li{
+        display: inline-block;  /* Main menu links appear horizontal*/
+        background-color:rgba(25, 2, 31, 0.671);
+        min-width:7%;
+        padding: 0.5% 0;
+        margin: 3px;
+}
+ul.major  li:hover{
+  background-color: red; 
+}
+ /*--the nav menu links appears vertically--*/
+ul.minor > li{
+     display: block;
+      background-color: #126b6ee7;
+      text-align: left;
+      padding:8px 10px;
+      margin:0;
+      border-bottom: 1px solid blue;
+  }
+  /*HIDE CHECKBOX AND MENU ICON AND FOR DESKTOP LAYOUT*/
+  .mobile-menu,#toggle{
+    display:none;
+  }
+  /*SHOW MAIN MENU WHEN MAIN MENU WHEN MENU ICON IS CLICKED*/
+  #toggle:checked +  ul.major{
+    transform: scale(1); 
+    display: block; /* display the main menu when icon clicked */
+  }
+  .mobile-menu{
+    margin: 10px 20px;
+  }
+  /*creating menu icon with three 30x5 spans seperated by 2px*/
+  .mobile-menu span{
+    width:30px;
+    height: 5px;
+    margin: 2px;
+    background: red;
+    display: block;
+  }
+@media screen and (max-width: 700px) {
+
+    /*--the nav menu links appears horizontally--*/
+    ul.major  {
+        position: absolute;
+        transform: scale(0);
+        transition:all 300ms cubic-bezier(0.39, 0.575, 0.565, 1);
+        width:100%;
+        }
+        ul.major  li{
+            display: block;
+            width:98%;
+            padding:1% 1%;
+            margin: 1px;
+        }
+        /*--the nav menu links appears vertically--*/
+        ul.minor > li{
+            text-align: left;
+            padding:10px 30px;
+            margin:0;
+        }
+        .mobile-menu{
+             display : block;
+        }
+        .logo{
+             margin-top:-1px;
+        }
+   }
+ </style>
+</head>
+<body>
+    <div class="container">
+            <!--TOP AND FIXED NAVIGATION WITH DROPDOWN MENU-->                 
+                <nav>
+                        <!--ICON USED FOR COLLAPSEBLE MENU ON MOBILE DEVICE USING CHECKBOX-->
+                        <a href="#" ><h1 class="logo">James Pic</h1></a> 
+                        <label class="mobile-menu" for="toggle">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                       </label>
+                        <input type="checkbox" name="" id ="toggle" value="" >
+                      <ul class="major">
+                          <li> <a href="#">Home</a>  </li>
+                          <li> <a href="#">About</a>  </li>
+                     <!--DROP DOWN COLLABSEBLE DROPDOWN ON HOVER-->
+                          <li > <div class="dropdown"><a  href="#">Projects</a></div>
+                                  <ul class="minor">
+                                    <li><a href="#">Free pictures</a>  </li>
+                                    <li><a href="#">Most Rated</a>  </li>
+                                  </ul>
+                             </li>
+                    <!--DROP DOWN COLLABSEBLE DROPDOWN ON HOVER-->
+                          <li> <div class="dropdown"> <a href="#">Videos</a></div>
+                                  <ul class="minor">
+                                    <li><a href="#">Turtorials</a>  </li>
+                                    <li><a href="#">Interviews</a>  </li>
+                                  </ul>
+                           </li>
+                          <li> <a href="#">Contacts</a>  </li>
+                      </ul>
+                    </nav>
+         <!--END OF TOP AND FIXED NAVIGATION WITH DROPDOWN MENU--> 
+    </div>
+</body>
+</html>

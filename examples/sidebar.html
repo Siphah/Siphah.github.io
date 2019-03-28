@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+    <style media="screen">
+      *{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+     
+	 a{
+          text-decoration: none;
+          color:white;
+      }
+     #sideNav{
+        position: fixed;/*keep the side nav even when user scrolls the page*/
+        width:200px; /* The width of side Navigation*/
+        height: 100%; /*The full screen height*/
+        background: #444;
+        left: -200px;/* Hide side bar on left side of screen by default */
+        transition: all 500ms linear; /*Revealing animation*/
+      }
+	
+    /* #sideNav is toggled to this class when user clicks the menu icon */
+     #sideNav.active{
+        left: 0px; /*Reveal the sidebar by shifting the side to the right*/
+      }
+
+      #sideNav ul li{
+        list-style: none;
+        padding: 15px 10px;
+        color:#eee;
+        border-bottom: 1px solid  #666;
+      }
+		/*Menu Icon */
+      div{
+        position: absolute;
+        left: 230px; /*200px is for hidden side bar and 30px for actual menu icon*/
+        top:20px;
+      }
+	  /*Three lines of span elements(with spaces in between forming menu icon)*/
+      span{
+        display: block;/*Each span line becomes a vertical list (or block element)*/
+        width:30px; /*Actual width of the icon*/
+        height: 5px; /*small height enought to form  thickness of the lines*/
+        background-color: #151719;
+        margin: 3px 0;/*vertical spaces between the lines*/
+      }
+          </style>
+    <meta charset="utf-8">
+    <title>Sidebar using JS</title>
+ 	<rel="shortcut icon" type="image/PNG" href="favicon.PNG">
+  </head>
+  <body>
+    <nav id="sideNav">
+          <div role="button" onclick="toggleSideBar()">
+              <span></span>
+              <span></span>
+              <span></span>
+          </div>
+
+          <ul>
+            <li> <a href="#" >Home</a></li>
+
+            <li> <a href="#">About</a> </li>
+            <li> <a href="#">Contact</a> </li>
+          </ul>
+    </nav>
+    <script type="text/javascript">
+        function toggleSideBar(){
+          document.getElementById('sideNav').classList.toggle('active');
+        }
+          </script>
+  </body>
+</html>
