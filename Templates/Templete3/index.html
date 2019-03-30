@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <style media="screen">
-	*{scroll-behavior:smooth;}
+*{scroll-behavior:smooth;}
       html,body,div.container{
           height: 100%;
           width:100%;
@@ -62,6 +58,7 @@
       width:99%;
       border-bottom: 2px solid black;
       position: relative;
+	  z-index:1000;
 	
     }
 	.clearfix {
@@ -87,6 +84,8 @@
         padding: 0.3% 3%;
         background-color: transparent;
         color: white;
+        -webkit-transition:background-color 0.3s  ease-in;
+        -o-transition:background-color 0.3s  ease-in;
         transition:background-color 0.3s  ease-in;
     }
 
@@ -95,7 +94,6 @@
     }
     ul.major  li:hover{
       background-color: red;
-
     }
     /*--the dropdown menu drop out of the navigation--*/
     ul.major{
@@ -103,20 +101,28 @@
       float: right;
       margin:-3.5% 1% 0 1%;
       padding-bottom: 1%;
-      transform: scale(0);
+      -webkit-transform: scale(0);
+          -ms-transform: scale(0);
+              transform: scale(0);
+      -webkit-transition:-webkit-transform .3s ease-in;
+      transition:-webkit-transform .3s ease-in;
+      -o-transition:transform .3s ease-in;
       transition:transform .3s ease-in;
+      transition:transform .3s ease-in, -webkit-transform .3s ease-in;
       border: 1px solid rgba(0,0,0,.4);
       border-radius: 8px;
     }
     /*--the nav menu links appears horizontally--*/
     ul.major  li{
-        background-color: rgba(225,225,225,.1);
+        background-color: #ccc;
         display: block;
         border-bottom: 1px solid rgba(225,225,225,1);
         padding:5px 10px;
         font-size: 20px;
+        -webkit-transition:background-color 0.3s linear;
+        -o-transition:background-color 0.3s linear;
         transition:background-color 0.3s linear;
-        background-color: white;
+		
 
     }
     nav label{
@@ -128,6 +134,8 @@
       text-transform: uppercase;
       position: relative;
       right: 10%;
+      -webkit-transition:background-color 0.3s  ease-in;
+      -o-transition:background-color 0.3s  ease-in;
       transition:background-color 0.3s  ease-in;
 
     }
@@ -147,20 +155,28 @@
         padding: .3% 5%;
         background-color: transparent;
         color: white;
+        -webkit-transition:background-color 0.3s  ease-in;
+        -o-transition:background-color 0.3s  ease-in;
         transition:background-color 0.3s  ease-in;
     }
     ul.major  li:hover,nav label:hover,input[type="submit"]:hover,.major li:hover{
         background-color: aqua;
     }
     input[type=checkbox]:checked + ul.major{
-          transform: scale(1);
+          -webkit-transform: scale(1);
+              -ms-transform: scale(1);
+                  transform: scale(1);
     }
     .col-1{
       width: 44%;
       z-index: -2000;
       margin:7% 32%;
-     transform-origin: top left;
-     transform: skewY(4deg);
+     -webkit-transform-origin: top left;
+         -ms-transform-origin: top left;
+             transform-origin: top left;
+     -webkit-transform: skewY(4deg);
+         -ms-transform: skewY(4deg);
+             transform: skewY(4deg);
      text-align: center;
 
     }
@@ -186,6 +202,8 @@
        border-radius: 5px;
        padding: 5px 0;
        color: white;
+       -webkit-transition: background .3 ease-in;
+       -o-transition: background .3 ease-in;
        transition: background .3 ease-in;
        border:2px solid white;
 
@@ -212,6 +230,8 @@
      .col-2 input[type=submit]{
        width:25%;
        border-radius: 5px;
+       -webkit-transition: background .3 ease-in;
+       -o-transition: background .3 ease-in;
        transition: background .3 ease-in;
        border:1px solid white;
        background: rgba(0, 0, 0, 0.8);
@@ -226,7 +246,7 @@
        background-color: rgba(0, 0, 0, .2);
        padding:2% 1% 2% 2%;
        border-radius: 5px;
-       top: -72%;
+       top: -68%;
        float: right;
      }
      .vertical-2{
@@ -243,6 +263,8 @@
      }
      .col-3 ul li a{
       color: rgba(0, 0, 0, .8);
+	  -webkit-transition:color .3s linear;
+	  -o-transition:color .3s linear;
 	  transition:color .3s linear;
      }
      .col-3 ul li a:hover{
@@ -289,6 +311,8 @@
        width:50%;
        padding: 1% 0;
        border-radius: 5px;
+       -webkit-transition: background .3 ease-in;
+       -o-transition: background .3 ease-in;
        transition: background .3 ease-in;
        border:1px solid white;
        background: rgba(0, 0, 0, 0.8);
@@ -298,12 +322,16 @@
      iframe{
        float: left;
        margin: 1% 1% 0 1.5%;
-       transform: rotate(4deg);
+       -webkit-transform: rotate(4deg);
+           -ms-transform: rotate(4deg);
+               transform: rotate(4deg);
      }
      .vid-cap{
     float: left;
     width:250px;
-    transform: rotate(4deg);
+    -webkit-transform: rotate(4deg);
+        -ms-transform: rotate(4deg);
+            transform: rotate(4deg);
     color: white !important;
     background: rgba(0, 0, 0, 0.5);
      }
@@ -377,6 +405,8 @@
      }
 	.center a{
 		color:rgba(0,0,0,.8);
+		-webkit-transition:color .3s linear;
+		-o-transition:color .3s linear;
 		transition:color .3s linear;
 	}
 	.center a:hover{
@@ -388,7 +418,12 @@
 		border-radius:100%;
 		background:#444;
 	}
-  @media screen and (max-width: 800px) {
+  @media screen and (min-width: 856px) {
+     .col-3{
+       top: -500px;
+     } 
+  }
+  @media screen and (max-width: 850px) {
 
     .input-search{
       margin: 5px;
@@ -420,8 +455,12 @@
       width: 99%;
       z-index: -2000;
       margin:0;
-     transform-origin: top left;
-     transform: skewY(0deg);
+     -webkit-transform-origin: top left;
+         -ms-transform-origin: top left;
+             transform-origin: top left;
+     -webkit-transform: skewY(0deg);
+         -ms-transform: skewY(0deg);
+             transform: skewY(0deg);
 	   position:static;
      text-align: center;
     } 
@@ -456,7 +495,8 @@
        margin: 0;
        font-size: 99%;
        padding:2%;
-	   box-sizing:border-box;
+	   -webkit-box-sizing:border-box;
+	           box-sizing:border-box;
 	     position:static;
      }
 
@@ -511,14 +551,18 @@
      iframe{
        float: none;
        margin: 1%;
-       transform: rotate(0deg);
+       -webkit-transform: rotate(0deg);
+           -ms-transform: rotate(0deg);
+               transform: rotate(0deg);
 	   width:90%;
 	   height:120px;
      }
 		.vid-cap{
 			float: none;
 			width:98%;
-			transform: rotate(0deg);
+			-webkit-transform: rotate(0deg);
+			    -ms-transform: rotate(0deg);
+			        transform: rotate(0deg);
          }
      .body{
        margin-left:1%;
@@ -539,15 +583,13 @@
        padding-left: 0%;
      }
 
-	  }
-	  
-	 
+ }
     </style>
     <meta charset="utf-8">
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Kaushan+Script" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-    <title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Blog Template</title>
   </head>
   <body>
     <div class="container">
@@ -566,7 +608,7 @@
                     <li> <a href="#Latest-posts">Lastest Posts</a> </li>
                     <li> <a href="#selected-post">Selected Post</a> </li>
                   </ul>
-				  <a href ="#home" style ="position:fixed; right:0; z-index:3000; bottom:150px; background:rgba(0,0,0,.3); padding:10px 5px">Return</a>
+				  <a href ="#home" style ="position:fixed; right:0; z-index:3000; bottom:150px; background:rgba(0,0,0,.3); padding:10px 5px">UP</a>
            </nav>
            <div class="col-2">
              <form class="" action="" method="post">
