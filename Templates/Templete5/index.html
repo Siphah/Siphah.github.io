@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/standerd.css">
+    <meta charset="utf-8">
+<style media="screen">
+html,body{
+       font-family: 'Questrial', sans-serif;
+	}
+nav{
+        z-index: 1000;
+		position:fixed;
+		width:100%;
+		margin:0;
+		padding:0;
+}
+nav a{
+        margin: 0;
+        width:25%;
+        border: 1px solid #222;
+        display: block;
+        float: left;
+        border-right: 0px;
+        box-sizing: border-box;
+        color:#888;
+        background:#333;
+        border-top: none;
+        line-height: 30px;
+        text-align: center;
+}
+nav a:last-child{  border-right: 1px solid #222; }
+
+nav a:hover, a:active{
+        border-bottom: none;
+        border-top: none;
+        border-left: 1px solid #ccc;
+        color:#ccc;
+        background: #444;
+    }
+.social-call{
+	position:fixed;
+	z-index:1000;
+	right:3px;
+	top:200px;
+	width:30px;
+}
+.social-call a{
+	display:block !important;
+	width:30px;
+}
+/***********END OF TOP NAVIGATION****************************************/
+.gallery div{
+        margin: .5%;
+        box-sizing: border-box;  
+        float: left; 
+}
+	  
+.gallery{
+        position: relative;
+        width:90%;
+        left: 5%; 
+		top:80px;		
+}
+
+hr{
+      margin:0 0 1% 0;
+      border: 1px solid #333;
+}
+h2,h3{
+      color:#ccc;
+}   
+/**********************CAROSUAL*********************************/
+.carousel{
+       width: 100%;
+       height: 300px  !important;
+       float: left;
+       margin: 0 !important;
+       position: relative;
+       
+}    
+.carousel img , .carousel a{
+      width:100%;
+      height: 100% !important;
+      position: absolute;
+}
+.gallery .prev,.next{
+      position: absolute;
+      width:10%;
+      height: 300px;
+      font-size: 50px;
+      background-color: rgba(0, 0, 0, 0.4);
+      color: #ccc;
+       outline: none;
+}
+
+.prev{
+      left: 0;
+}
+.next{
+       right: 0;
+ }
+
+.play{
+      position: absolute !important;
+      font-weight: bold;
+      color: #bbb;
+      line-height: 50px;
+      background-color: rgba(0,0,0,.4);
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      padding:  0 5px;
+      transition: background .5 ease-in;
+      left:50%;
+      top:100px;
+      transform: translate(-50%,130px);
+	  z-index:1000;
+    }
+ .play:hover ,.next:hover ,.prev:hover{
+            background: rgba(0,0,0,.6);
+ }
+.ad{
+	   background-color:rgba(0,0,0,.4);
+     color:aqua;
+     left:11%;
+		 position:absolute;
+	   top:1%;
+}
+.description{
+		  margin:1%;
+			color:#eee;
+}
+/**********************CAROSUAL*********************************/
+/*************SKILLS BAR****************************/  
+.gallery .skill{
+      margin:1% 3%;
+}
+.gallery ul li{
+   color:#aaa;
+   margin: 1% 15px;
+   border-bottom: 1px solid #333;
+   transition: all .3s linear;
+}
+.gallery ul li:hover{
+      color:#fff;
+}
+.skill-wrap{
+          width: 100%;
+          display:block;
+}
+.bar{
+         width: 150px;
+         height: 20px;
+         background: rgba(225,225,225,.1);
+         display: inline-block;
+         margin-right: 20px;
+         position: relative;
+}
+.bar::after{
+         background: rgba(225,225,225,.4);
+         position: absolute;
+         content: '';
+         height: 20px;
+}
+
+        /*CSS SKILL*/
+.skill-1::after{  width:90%;  }
+.skill-2::after{  width:60%;  }
+.skill-3::after{  width:70%;  }
+.skill-4::after{  width:50%;  }
+
+         /*JS SKILL*/
+.skill-5::after{  width:90%;  }
+.skill-6::after{  width:80%;  }
+.skill-7::after{  width:65%;  }
+.skill-8::after{  width:50%;  }
+
+         /*Frameworks SKILL*/
+.skill-9::after{  width:90%;  }
+.skill-10::after{  width:60%;  }
+/*********************SKILLS BAR************************************/
+			
+/********************ABOUT ARTICLE***********************************/
+.article{
+        position:relative;
+        width: 100%;
+        height: auto !important;
+        border:1px solid #555;
+        box-sizing: border-box;
+        padding: 7% 14%;
+        color:#bbb;
+        background: #555;
+ }
+.article:after{
+         content: '';
+         position: absolute;
+         box-sizing: border-box;
+         width: 45px;
+         height: 45px;
+         border-top: 0 solid #555;/*getting rid of inner arraw */
+         border-right: 1px solid #555;/*white outer arrow*/
+         border-bottom: 1px solid #555;/*white outer arrow*/
+         border-left: 0 solid #aaa;/*getting rid of inner arraw */
+         top:100%; /*put the small box on the bottom of the container */
+         left:50%; /*shift the small box to the center relative  to the container */
+         margin-left:-25px; /*align the the center of the the small to the center of container */
+         transform: rotate(45deg); /*change square to diamond */
+         margin-top: -25px;/*center the diamond to the container */
+         background: #555;/*same as of container,getting rid of border line inside an arrow */
+		 margin-bottom:50px;
+ }
+.article img{
+         width: 150px !important;
+         height: 150px !important;
+}
+/********************ABOUT ARTICLE***********************************/
+/****************FORM**************************************/
+.article input{
+          width: 100%;
+          float: left;
+          margin: 0 !important;
+          padding: 0 !important;
+          border: 1px solid #ccc;
+          outline: 0 !important;
+          line-height: 50px;
+          background: #aaa;
+          color: #444;
+          box-sizing: border-box;
+          padding: 0 25px ;
+          text-align: center;
+}
+.article input[type='submit']{
+       background: #111;
+       color: #ccc;
+ }
+/**********************FORM****************************************/
+/****************IMAGE GALLERY*************************************/
+#allImages{
+	margin:20px 0;
+}
+#allImages img{
+	margin:0;
+	padding:0;
+	float:left;
+}
+#modal-container{
+	position:fixed;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	background:rgba(0,0,0,.5);
+	display:none;
+	height:100%;
+	z-index:3000;
+		
+	}
+.pop-up{
+    position  : absolute;
+	width     :50%;
+	top       : 50%;
+	left      : 50%;
+	transform : translate( -50% , -50%);	
+	-webkit-transform : translate( -50% , -50%);
+       padding:20px;
+	background:rgba(0,0,0,.5);
+	border-radius:5px;
+	color:#fff;
+}
+#close{ 
+	position : absolute;
+	right:5px;
+	top:5px;	
+	cursor:pointer;
+	transform:rotate(45deg);
+	border-radius:50%;
+	font-size:20px;
+}
+#close:hover{ color:red; }
+#currentSlide{
+	width     : 100%;
+	height    : 300px;
+}
+#currentCapt{
+	text-align : center;
+}
+/********************GALLERY**************************/
+footer{ 
+		 position:fixed;
+         bottom: 0;
+         color: #ccc;
+         box-sizing: border-box;
+         background: #111;
+         left:0;
+		 right:0;
+  }
+ footer a{
+		color:#666;
+		padding:5px 10px;
+		float:right;
+		font:14px;
+		border-left:1px solid #444;
+		transition:all .3s fade-in;
+}
+ footer a:hover{
+		color:#444;
+}
+@media screen and (max-width: 768px) {
+	.gallery{
+		top:50px;
+	}
+  .carousel{
+       width: 100%;
+       float: none;
+       margin: 0 !important;
+       position: relative;
+	   height:150px;
+	   
+   } 
+   h3{
+        font-size : 17px;
+		padding:5px 2px;
+   }
+   h2{
+		font-size:25px;
+   }
+   .article img{
+          width: 100% !important;
+          height:80px;
+          float:none;
+          margin-right: 1em;
+          margin-bottom: 1em;
+          border-radius: 5px;
+          shape-outside:none;
+   }
+   .article:after{
+         width: 10px;
+         height: 10px;
+		 }
+   .article{
+        padding: 7% 4%;
+   }
+   .column{
+        width: 47%;
+   }
+   .gallery .carousel{
+        margin:0;
+        box-sizing: border-box;        
+   }
+   .gallery .skill{
+      display: block; 
+      width:100%;
+      float: none;    
+  }
+  .skill ul{
+    margin: 0;
+    width:100%;
+    display: block;
+    float: none;
+  }
+  .gallery ul li{
+      color:#aaa;
+      margin: 10px 15px;
+      width:80%;
+      display:block;
+      border-bottom: 1px solid #333;
+      transition: all .3s linear;
+  }
+  .gallery ul li:hover{
+     color:#fff;
+ }
+ .bar{
+     width: 100%;
+ }
+}
+@media screen and (max-width: 550px) {
+  .carousel{
+		   height:100px;
+  }
+  .column{
+        width: 96%;
+  }
+  .column img{
+			   height:100px !important;
+  }
+}
+</style>
+	    <!-- Load an icon library -->
+	<link href="https://fonts.googleapis.com/css?family=Pattaya|Questrial" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Web Developer Portfolio</title>
+  </head>
+  <body >
+    <div class="container" >
+              <nav>
+                   <a href="#home">Home</a>
+                   <a href="#about">About</a>
+                   <a href="#gallery">Gallery</a>
+                   <a href="#contact">Contact </a>
+				    <p class="social-call">
+                           <a href="https://www.facebook.com/gfab.ghettofabulous?" target = "_blank"> <i class="fa fa-fw fa-facebook"></i> </a>
+                           <a href="#" target = "_blank" ><i class="fa fa-fw fa-twitter"> </i></a>
+						   <a href="#" target = "_blank" ><i class="fa fa-fw fa-linkedin"></i></a>
+                    </p>
+              </nav>
+              
+              <div class="gallery"  id="home">
+                       <h2 style="font-family: 'Pattaya', sans-serif;">Siphamandla</h2>
+                       <hr noshade="noshade" />
+                          <div class="carousel box " >
+                               <a href='https://photos.google.com/share/AF1QipNeRQkfGXJDdvsVHx3nmWfUWCwdnqc7n_VPW63yD7pwGH5j9r-XIPPR8-30ec_VRw?key=dERGUGVia3M1Znl0eHhleGNObTd1S1ZtUTJjYnF3&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/CcnRj8qDIGK3tI-NMBd4gwz3GFf_bk-k9iDokPXQegxsuMxlaoj_8oItCvwVIZXUqKhEvGQfu20SpMjmd-5xdTftklfs76E9-8eEQoCu6oxRVDr6aDywEbi6uchJWSuhBJNOzXPZaQ=w2400' /></a>
+						                   <h3 class="ad" >Responsive Design for all Screens</h3>
+                          </div>
+
+                          <div class="carousel box "  >
+                               <a href='https://photos.google.com/share/AF1QipOz9D35jfjoQPlSjle_FBplhuCNWbdDxF9ov51WJndjbm1a20i6zEf5N3EhiZVXfw?key=cU1ZX0tjRE9BNUdSOTBZbEZKal9qczVRQ1piWXpB&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/49TZJFvhzru59ujMPJdIXGZQa16BbM1IFPyZmFeBU5AcAbDJb7SY1S8-SN_nRGxxFPiCkiFiKG1k0PUH3YGOmTe7VCQwtIVDPEj2CVLCdtrXBvQocpOg6UeDgxFUnFA8iTLwj7yuAA=w2400' /></a>
+						                   <h3 class="ad">Compatible with all modern browser</h3>
+                          </div>
+                         
+                          <div class="carousel box" >
+                                <a href='https://photos.google.com/share/AF1QipPOOqt3S8PlaC60KKzJUqVyOxFFQCcb0Bp-fFsOQqho0mPgLCUHOqQyzp6yA9T6Uw?key=bDVfbUR2cW1wUGRzNnpUNUdaSDQtcG9FSnR1SmFB&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/nlJcjJkG8KwGwLkE_C5b1eJRfmi81wpOf1vbMpYQZgDhxuSxHTF90ZM4vGb9Vbd5TtaakCBXMXIckOi8KzCGwkDSQ-49GS3aQkbwGcq2_KClRukTNxwbII_6f_aaJDYjvIJqeuglAQ=w2400' /></a>
+						                    <h3 class="ad">Search Engine Optomised</h3>
+                          </div>
+                        
+                          <div class="carousel box" >
+                                <a href='https://photos.google.com/share/AF1QipN2QeabQzqGfaB0HSyGxBtayCVwoh9Sbv51uAtiVDY8PCVNumHrXEj0c7hdxnJJdg?key=MV81anFtOWFyamVaWGFvRzdMVkxQMGpNOGJFRlZ3&source=ctrlq.org'><img src='https://lh3.googleusercontent.com/5wkjkV7NSvobK6QSFSP0YE37c7RNdgESO_1E_VjdraOMv1KAn9pCW2m61R_iOa2KlcyHIJm4KHMHxD8gHqcht7lnqaQ3nu7xbD_b_x-NL8YJlr99F-Oa8nHa4oCDQ1m-E_CIhA_sRQ=w2400' /></a>
+						                    <h3 class="ad">Accessible to disabled people</h3>
+                          </div>
+            
+                       <button type="button" name="button" class="prev box " onclick="customName.prev()"> < </button>
+                       <button type="button" name="button" class="next box  " onclick="customName.next()"> > </button>
+                       <button type="button" name="button" class="play box " onclick="customName.next(5000)" >Slide show</button>
+                          <div class="skill-wrap ">
+                             <div class="skill " >
+                                  <h3>css</h3>
+                                  <ul>
+                                      <li>   <span class="skill-1 bar box"></span>Pure CSS </li>
+                                      <li>  <span class="skill-2 bar box"></span> CSS grids  </li>
+                                      <li>  <span class="skill-3 bar box"></span> SASS </li>
+                                  </ul>
+                              </div>
+
+                             <div class="skill">
+                                 <h3>JS</h3>
+                                  <ul>
+                                    <li> <span class="skill-5 bar box"></span> Vanilla JS </li>
+                                    <li> <span class="skill-6 bar box"></span>   Jquery </li>
+                                    <li> <span class="skill-7 bar box"></span>   Angularjs </li>
+                                   </ul>
+                             </div>
+
+                              <div class="skill">
+                                 <h3>Framework</h3>
+                                 <ul>
+                                      <li><span class="skill-9 bar box"> </span> Bootstrap </li>
+                                 </ul>
+                             </div>
+                        </div>  
+              </div>
+              <div class="gallery"  >
+                  <h2>About Siphamandla</h2>
+                  <hr noshade="noshade"id="about" />
+                  <div class="article  box" >
+                        <img src="images/image1.jpg" alt=""   class="circ-img-text">
+                        <p >
+                            My main concern when developing applications is quality and efficiency.
+                            I started Computer Programming with C++ fundamentals as self taught in 2016.
+                            Doing Computer Engineering with electrical and electronic background made me to be more
+                            sensetive with the efficiency of the system .
+                      </p>          
+                 </div>
+            </div>
+	        <div id="modal-container">
+			   <div class="pop-up">
+				   <span id = "close">+</span>
+				   <img id="currentSlide" src="images/image1.jpg"  alt="Current Slide-fassion image"> 
+				    <p id="currentCapt"></p>
+			  </div>
+	       </div>
+           <div class="gallery" >
+                 <h2>Image gallery</h2>
+                 <hr noshade="noshade" />
+                 <div class="article box" id = "allImages" >
+                     <img src="images/image1.jpg" alt="1 out of 8"  height = "50"  />
+                     <img src="images/image2.jpg" alt="2 out of 8"  height = "50"  />
+                     <img src="images/image3.jpg" alt="3 out of 8"  height = "50"  />
+                     <img src="images/image4.jpg" alt="4 out of 8"  height = "50"  />	
+                     <img src="images/image5.jpg" alt="5 out of 8"  height = "50"  />
+                     <img src="images/image6.jpg" alt="6 out of 8"  height = "50"  />	
+                     <img src="images/image7.jpg" alt="7 out of 8"  height = "50"  />
+                     <img src="images/image8.jpg" alt="8 out of 8"  height = "50"  />					 
+                </div>
+		
+			<div id="gallery"  style=" width:100% ">
+			</div>
+            <div class="gallery"   >
+                 <h2 >Contact details</h2>
+                 <hr noshade="noshade"  />
+                 <div class="article box">
+                    <form class="" action="index.html" class="box"  method="post">
+                      <input type="text" name="" value="Enter your name here">
+                      <input type="email" name="" value="yourdomain@mail.com">
+                      <input type="text" name="" value="type a message less than 100 charectors">
+                      <input type="submit" name="" value="Send" >
+                    </form>
+                </div>
+            </div>
+				<div id="contact"  style=" width:100% ">
+			    </div>
+			<footer>
+		         	<a href="#contact">Contact Us</a>	
+			       <a href="#gallery">Gallery</a>
+				   <a href="#about">About</a>
+                   <a href="#home">Home</a>		
+			</footer>
+  </div>
+<script src="js\carousel.js" charset="utf-8"></script>
+<script type="text/javascript">
+ var customName = new Carousel();
+const currentSlide = document.querySelector("#currentSlide");//current image,in a slider
+const currentCaption = document.querySelector("#currentCapt");
+const allImages = document.querySelectorAll("#allImages img");//all images
+const modal = document.querySelector("#modal-container"); //modal
+const close = document.querySelector("#close");
+
+	allImages.forEach( img => img.addEventListener( 'click' , clickedImage ) );
+	close.addEventListener( 'click' , function(){	modal.style.display = "none"  });
+	modal.addEventListener( 'click' , function(){	modal.style.display = "none"  });
+
+   function clickedImage(event) {
+  //display the pop-up modal
+  modal.style.display = "block";
+  //change current slide to src of the clicked img
+  currentSlide.src = event.target.src;
+  currentCaption.innerHTML = event.target.alt;
+}
+
+   const navLinks = document.querySelectorAll('a');
+    navLinks.forEach(navLink => navLink.addEventListener('click' , smoothScroll) );
+    
+    function smoothScroll(event){
+       event.preventDefault();
+        linkAttribute = event.currentTarget.getAttribute('href');       
+        scrolledElement = document.querySelector(linkAttribute);
+        scrolledElHeight = scrolledElement.offsetTop;
+        const currentPosition = window.pageYOffset;
+        const distance = scrolledElHeight - currentPosition;
+    let start = null;
+    const duration = 500;
+    window.requestAnimationFrame(step);
+    function step(timestamp){
+        if(!start) start  = timestamp; //if start is null,let start = timestamp 
+        const progress = timestamp - start; //ellapsed time frame
+        window.scrollTo( 0 , distance*(progress/duration) + currentPosition);
+        if(progress < duration){
+            window.requestAnimationFrame(step);          
+        }
+    } 
+
+ }
+
+  
+            
+</script>
+</body>
+</html>
