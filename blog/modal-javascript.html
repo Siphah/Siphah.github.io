@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Modal Window using Vanilla Javascript</title>
+</head>
+<body>
+        <header class = "header" >
+                <label class="mobile-menu" for="toggle">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                 </label>
+                 <h1 class = "logo">Siphamandla</h1>
+                 <input type="checkbox" name="" id ="toggle" value="" >	
+                 <nav>
+                    <a href="../index.html" target="_blank" >Home</a>
+                    <a href="../index.html#about">About</a>
+                    <a href="../index.html#portfolio">Portfolio</a>
+                    <a href="../index.html#contacts">Contact Details</a>
+                    <a href="../resume/Siphamandla.docx" class="resume">Resume</a>
+                </nav>
+                 <a href ="#home"  style ="position:fixed; right:0; z-index:3000; bottom:150px; background:rgba(0,0,0,.3); padding:10px 5px">Return</a>
+          </header>
+             <main class="container box" id="home" >
+                 <section>
+                     <article>
+                         <div class="post">         
+                            <h1>Modal Window using Vanilla JavaScript</h1>
+                            <hr>
+                            <aside class="box author"> 
+                                    <img src="../images/siphamandla.jpg" alt="Author"   class="circ-img-text"> 
+                                    <b>Author:Mbokazi Siphamandla</b> 
+                            </aside>
+            
+                             <p class="introduction"> 
+                                Typical modal window make use JQuery library or other JS libraries, but this can be done easily with just few lines of vanilla JavaScript. In this demonstration
+                                I will show you how to build a animated modal window. A modal is box of content which is shown when the
+                                button is clicked. <br>
+                                <a href="../examples/js-pop-up-modal.html" >VIEW DEMO</a>
+                                <a href="../examples/js-pop-up-modal.zip" >DOWNLOAD SOURCE</a>
+                            </p>
+                        </div>
+                        <div>
+                            <h2>I. HTML</h2>
+                            <h3>HTML Mark-up</h3>
+                            <p>
+                             We start by create a button that will be clicked to open the modal window. <br>
+                             The second will be an element which will act as a full screen dark and transparent modal window.
+                             Inside a modal window we then create another element which will be a modal with a close button inside it.
+                             You can put other content inside this modal like a user subscribe form for example.
+                               
+                            </p>         
+                            
+                            <h2>II. CSS</h2> 
+                            <h3>1.Modal window </h3>
+                            <p>
+                                The modal window should be a fixed such that its doesn't move even the page is scrolled by user,
+                                thus we use <code>position:fixed;</code>.Then width and height is 100% so to make it
+                                full screen. <br>
+                                The next step is to hide modal window by default so that it is only shown when the user
+                                clicks the button. We use <code>transform: scale(0);</code>,and the zero will hide the modal window.
+                                We then use transition property to animate the process of showing the modal.
+                            </p>  
+<pre class="box"><code>
+.modal-container{
+  width:100%;/*full screen horizontally*/
+  height:100%; /*full screen vertically*/
+  background: rgba(0,0,0,.5);   /*dark and transparent*/
+  position: fixed;/*doesn't move even the page is scrolled */
+  transform: scale(0);/*Hide modal window by default*/
+  transition:all 500ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;/* to use flex box properties*/
+  align-items: center;/*vertically align content*/
+  justify-content: center;/*horizontally align content*/
+}
+</code></pre>  
+                            <h3>2.Modal Active class </h3>
+                            <p>
+                               The plan is to show the modal window if the button is clicked. This can be done by
+                               an active class with <code>transform:scale(1)</code> and use JavaScript to add This
+                               class in our modal window to change <code>transform:scale(0)</code> to <code>transform:scale(1)</code>.
+                            </p> 
+<pre class="box"><code>
+.active-modal{
+  transform: scale(1);          
+ }
+</code></pre> 
+                            <h2>3.Vanilla JavaScript</h2>
+                            <h3>2.Query select Button and Modal </h3>
+                            <p>
+                                We going to use the modal window and the opening button to create the interaction.
+                                We use query Selector to select classes of these elements.
+                            </p> 
+<pre class="box"><code>
+  const modal = document.querySelector('.modal-container');
+  const button = document.querySelector('.btn');
+</code></pre> 
+                            <h3>2.Onclick event Listener</h3>
+                            <p>
+                                Let’s use add event listener for click event on both elements (modal window and button).
+                                If the button is click the function <code>showModal()</code> will be clicked, to show
+                                the modal window. If the user clicks on the close button on the modal or anywhere in the
+                                modal window, the <code>hideModal()</code> function to close the modal will be called.
+                            </p> 
+<pre class="box"><code>
+   button.addEventListener('click',showModal);
+   modal.addEventListener('click',hideModal);
+</code></pre> 
+                            <h3>3.Hide and Show Modal Function</h3>
+                            <p>
+                                Now remember we created an active class called <code>active-modal</code>,now we going to
+                                use <code>classList.add()</code> to add this class to the modal window when
+                               <code>showModal()</code>  is called. Now the modal
+                                will be display when the user click the button. <br>
+                                When the use clicks anywhere in the screen or the close button, the <code>classList.remove()</code>
+                                will remove the active class and the modal will disappear when the c<code>hideModal()</code> 
+                                function is called. Now the modal can be hidden or shown.
+                            </p> 
+<pre class="box"> <code>
+function showModal(e){
+ modal.classList.add('active-modal');   
+ }
+function hideModal(e){
+  modal.classList.remove('active-modal');   
+}
+</code></pre>
+                        </div>
+                    </article>
+                </section>
+            </main>
+            <footer >
+            
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contacts">Contact Details</a>
+                <a href="https://www.facebook.com/gfab.ghettofabulous?"> <i class="fa fa-fw fa-facebook"></i> </a>
+           
+                <a href="https://twitter.com/SiphamandlaMbo7"><i class="fa fa-fw fa-twitter"> </i></a>
+                         
+               <a href="https://www.linkedin.com/in/sphamandla-mbokazi-413173178/"><i class="fa fa-fw fa-linkedin"> </i></a>
+            
+        </footer> 
+    </body>
+</html>

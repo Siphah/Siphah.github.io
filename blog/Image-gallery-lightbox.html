@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>CSS ONLY IMAGE GALLERY WITH LIGHTBOX(EASY STEPS)</title>
+</head>
+<body>
+<header class = "header" >
+       <label class="mobile-menu" for="toggle">
+             <span></span>
+             <span></span>
+             <span></span>
+        </label>
+		<h1 class = "logo">Siphamandla</h1>
+        <input type="checkbox" name="" id ="toggle" value="" >	
+		<nav>
+    		<a href="../index.html" target="_blank" >Home</a>
+			<a href="../index.html#about">About</a>
+			<a href="../index.html#portfolio">Portfolio</a>
+			<a href="../index.html#contacts">Contact Details</a>
+            <a href="../resume/Siphamandla.docx" class="resume">Resume</a>
+        </nav>
+        <a href ="#home"  style ="position:fixed; right:0; z-index:3000; bottom:150px; background:rgba(0,0,0,.3); padding:10px 5px">Return</a>
+ </header>
+    <main id="home">
+    <section>
+        <article>
+            <div class="post">
+                <h1>CSS ONLY IMAGE GALLERY WITH LIGHTBOX (EASY STEPS)</h1>
+
+                  <hr>
+                <aside class="box author"> 
+                        <img src="../images/siphamandla.jpg" alt="Author"   class="circ-img-text"> 
+                        <b>Author:Mbokazi Siphamandla</b> 
+                </aside>
+
+                <p class="introduction">    
+
+             
+                                Most image galleries with modal windows use JavaScript, but this can be done easily with just few lines of CSS. In this demonstration
+                                I will show you how to build a Responsive Image gallery with light box. Or modal window which pops up when each image
+                                in the gallery is clicked.<br>
+                                <a href="../examples/css-lightbox-image-gallery.html"  >VIEW DEMO</a>
+                                <a href="../examples/css-lightbox-image-gallery.zip"  >DOWNLOAD SOURCE</a>
+                            </p>
+                        </div>
+                        <div class="body box">
+                            <h2>I. HTML</h2>
+                            <h3>1. Grid Image column Structure</h3>
+                            <p> 
+Each column has an image and paragraph inside, and each column has a modal on top.
+                                Each image in the gallery is inside an anchor tag, this anchor tag is targeted when the image in the gallery is clicked,
+                                then the associate modal is shown.
+                                
+                            </p> 
+                            <h3>2. Modal Structure</h3>
+                            <p>Firstly we cover the modal with a<code>div.modal-overall</code> which will cover the whole screen with a dark 
+                                background colour so we can see the modal content clearly, when the modal is displayed.We then 
+                                create a modal :<code>div.modal-wrapper</code> with an image(which is the same as the one that is clicked in the gallery), and
+                               some paragraph for caption. And then we create an anchor link to close the modal.
+                                
+                            </p>
+
+                            <blockquote>
+                                This Structure is repeated depend on the how many images you have, but each modal
+                                 must have a unique IDs ,and also each div that has an image inside must have a unique ID.
+                                
+                            </blockquote>
+                            <h2>Two anchor links performs the magic</h2>
+                            <ol type="1">
+                                <li>
+                                    An anchor link that has an image inside, is targeted when image is clicked.
+                                    The relevant modal is shown because this anchor link has <code>href="#open-modal-1"</code>, which
+                                    opens an modal with a unique ID called "open-modal-1".                    
+                               </li>
+                               <li>
+                                    The second anchor link is inside the modal, which has an attribute which reference to an id
+                                     is inside the grid column, you can put this unique id inside the grid image if you want.
+                                    Now the anchor link can be used to close the modal.
+                               </li>
+                            </ol>
+
+                            <h2>II. CSS</h2>
+                            <h3> 1. Modal with Full Screen Dark Background (hidden by default)</h3>
+                            <p>
+                                <code>position: fixed; </code>
+                                 is used to keep the modal container fixed even when the user scrolls the page.
+                                 <code>::before</code> and <code>content:''</code> are used to create a full screen
+                                 dark background. Final, <code>display:none;</code> will hide this container until
+                                 the user clicks any image on the gallery.
+                            </p>
+<pre class="box"><code>   
+.modal-overall::before{
+  content: '';
+  position: fixed; /*MODAL CONTAINER IS SHOWN EVEN WHEN PAGE SCROLLED*/
+  /*DARK FULL SCREEN BACKGROUND*/
+  top:0;
+  left:0;
+  height: 100%;
+  width:100%;
+  background-color:rgba(0,0,0,0.8);/*DARKEN FULLSCREEN BACKGROUND*/
+  display:none;/*HIDE THE MODAL CONTAINER ON DEFAULT */
+}
+</code></pre>
+                            <h3> 2. Modal with image and close anchor (Hidden by Default) </h3>
+                            <p>
+                                We hide this modal using transform:translate(-50%,-200%); by default, and this -200% is will shift
+                                the modal vertically below the screen on default. The -50% is used to align the modal in the centre,
+                                with the help of the left:50%.We then use z-index:1000 so the modal is in front of the gallery
+                                or any other content in the page. Finally we put transition to animate the pop up event.
+                            </p>
+<pre class="box"><code>
+.modal-wrapper{
+   position: fixed; /*KEEP SHOWING MODAL EVEN WHEN PAGES IS SCROLLED*/
+   left:50%; /*centring the modal horizontally*/
+   transform: translate(-50%,-200%); /*HIDE THE MODAL ON DEFAULT */
+   transition:transform 200ms ease-out; /*ANIMATION THE POP UP*/
+   z-index: 1000; /*MODAL APPEAR INFRONT OF GRID IMAGE*/
+}
+</code></pre>
+                            <h3> 2. Show Modal when Image is clicked (using :target)</h3>
+                            <p>
+                                When the user click the image in the gallery, an anchor link that has an image targets an id which is 
+                                in the modal, thus, the modal is opened, we use <code>.modal-overall:target > .modal-wrapper</code>
+                                to listen to find that particular modal and display it using <code>transform: translate(-50%,0);</code>
+                                to move modal to the screen viewport.
+                            </p>
+<pre class="box"><code>
+.modal-overall:target > .modal-wrapper{
+   top:20%;
+   transform: translate(-50%,0); /*SHOW MODAL CONTENT WHEN USER CLICKS THE GRID IMAGE(WHICH IS UNDERA ANCHOR*/
+}
+ </code></pre>  
+                            <h3> 2. Show Modal container with dark full screen background</h3>
+                            <p>
+                                When the user click the image in the gallery, the modal appears, and thus, we use <code>display:block;</code>
+                                to show the modal container which is a dark full screen background.
+                            </p>
+<pre><code>
+.modal-overall:target:before{
+  content:'';
+  display:block; /*DISPLAY THE MODAL CONTAINER WHEN THE USER CLICK THE GRID IMAGE*/
+}
+</code></pre>
+                        </div>
+                    </article>
+                </section>
+            </main>      
+            <footer >
+            
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contacts">Contact Details</a>
+                <a href="https://www.facebook.com/gfab.ghettofabulous?"> <i class="fa fa-fw fa-facebook"></i> </a>
+           
+                <a href="https://twitter.com/SiphamandlaMbo7"><i class="fa fa-fw fa-twitter"> </i></a>
+                         
+               <a href="https://www.linkedin.com/in/sphamandla-mbokazi-413173178/"><i class="fa fa-fw fa-linkedin"> </i></a>
+            
+        </footer>                  
+</body>
+</html>
