@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JSON and AJAX</title>
+    <style>
+    #map{
+        height: 400px;
+        width:100%;
+    }
+    </style>
+</head>
+<body>
+    <h1>Google Maps</h1>
+    <span class="metadata-marker" style="display: none;" data-region_tag="html-body"></span>
+    <div id="map">
+
+    </div>
+    
+<script>
+    function initMap(){
+        var options = {
+            zoom   : 14,
+            center : {lat: -29.8587, lng: 31.0218},
+            map    : map
+           
+        }
+        var map = new google.maps.Map(document.getElementById('map'),options);
+
+        var maker = new google.maps.Marker({
+            position :  {lat: -29.8587, lng: 31.0218},
+            map      : map
+            
+        });
+        var infoWindow = new google.maps.infoWindow({
+            content : '<h1>Durban</h1>'
+        });
+        marker.addEventListener('click',function(){
+            infoWindow.open(map, marker);
+        });
+    }
+</script>
+<script async defer  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCylnXHIDxo50xI_WiF209TMp3sP-ijdkE&callback=initMap">
+</script>
+</body>
+</html>

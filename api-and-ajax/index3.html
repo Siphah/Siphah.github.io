@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <section class="menu-container">
+        <aside class="cart">
+            <h2 class="Item">Add T-shirt</h2>
+            <p class="price">45</p>
+            Qty <input type="number" class="qty" value="1" min="1">
+            <button class="add">Add to</button>
+        </aside>
+        <aside class="cart">
+            <h2 class="Item">Add Vest</h2>
+            <p class="price">35</p>
+            Qty <input type="number" class="qty" value="1" min="1">
+            <button class="add">Add to</button>
+        </aside>
+        <aside class="cart">
+            <h2 class="item">Add Long Sleeve</h2>
+            <p class="price">50</p>
+            Qty <input type="number" class="qty" value="1" min="1">
+            <button class="add">Add to</button>
+        </aside>
+    </section>
+    <section class="cart-wrapper">
+        <h1>Shopping Cart</h1>
+        <table id="myCart" border="1">
+            <tr>
+                <th>Item Name</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            <tr style="display:none; border:2px solid #bbb">
+                <td colspan="3">Subtotal</td>
+                <td class="subtotal right"></td>
+            </tr>
+        </table>
+    </section>
+    <script>
+        $('.add').click(function(){
+            $('#myCart tr:last').show();
+            var item = $(this).siblings('.item').text();
+            var price =  $(this).siblings('.price').text();
+            var qty =  $(this).siblings('.qty').val();
+            var total = price * qty;
+
+            //check if item exists in the table
+            if( $("td:contains('"+ item +"')").length >0){
+                var qtyLast = $("td:contains('"+ item +"')").next().text();
+                var accQty = parseInt(qtyLast) + parseInt(qty);
+                $("td:contains('"+ item +"')").siblings(".qty2").text(accQty);
+                total = price * accQty;
+                $("td:contains('"+ item +"')").siblings(".total").text(total);
+                var sum = 0;
+                $(".total").each(function(){
+                    var val = parseInt( $(this).text() );
+                    var sum =+ val;
+                    $(".subtotal").text(sum);
+                });
+            }else{
+                $('.myCart tr:last').before(
+                    "<tr>"+
+                        "<td class='qty2'>" + qty + "</td>" +
+                        "<td class='right price2'><span class ='currency' >$</span> "+ price + "</td>" +
+                        "<td class='right total'>" +total+ "</td>" +
+                   + "</tr>"
+                );
+                 var sum = 0;
+                $(".total").each(function(){
+                    var val = parseInt( $(this).text() );
+                    var sum =+ val;
+                    $(".subtotal").text(sum);
+                });
+            }
+            var qty =  $(this).siblings('.qty').val(1);
+        });
+    </script>
+</body>
+</html>
