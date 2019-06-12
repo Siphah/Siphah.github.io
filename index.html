@@ -27,9 +27,9 @@
 			<a href="#portfolio">Portfolio</a>
 			<a href="#contacts">Contact Details</a>
 			<a href="resume/Siphamandla.docx" class="resume">Resume</a>
+		<a href="#" id="scroll" style="display: none;"><span></span></a>
 		</nav>
 
-		  <a href ="#home" style ="position:fixed; right:0; z-index:3000; bottom:150px; background:rgba(0,0,0,.3); padding:10px 5px">Return</a>
 	</header>
 		<div class = "centd-obj" >
 		     <h1 class ="landing-title">Passionate Frontend Web Developer</h1>
@@ -229,6 +229,17 @@ $(document).ready(function(){
       });
     } // End if
   });
+    $(window).scroll(function(){ 
+        if ($(this).scrollTop() > 100) { 
+            $('#scroll').fadeIn(); 
+        } else { 
+            $('#scroll').fadeOut(); 
+        } 
+    }); 
+    $('#scroll').click(function(){ 
+        $("html, body").animate({ scrollTop: 0 }, 600); 
+        return false; 
+    });
 });
 </script>
   </body>
