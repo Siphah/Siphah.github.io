@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>VANILLAJS ONLY SIDE BAR (SIMPLE STEPS)</title>
+			     <link rel="shortcut icon" href="./../favicon.ico" type="image/x-icon">
+</head>
+<body>
+<header class = "header" >
+       <label class="mobile-menu" for="toggle">
+             <span></span>
+             <span></span>
+             <span></span>
+        </label>
+		<h1 class = "logo">Siphamandla</h1>
+        <input type="checkbox" name="" id ="toggle" value="" >	
+		<nav>
+    		<a href="../index.html" target="_blank" >Home</a>
+			<a href="../index.html#about">About</a>
+			<a href="../index.html#portfolio">Portfolio</a>
+			<a href="../index.html#contacts">Contact Details</a>
+            <a href="../resume/Siphamandla.docx" class="resume">Resume</a>
+        </nav>
+        <a href="#" id="scroll" style="display: none;"><span></span></a>
+ </header>
+    <main class="container box" id="home" >
+        <section>
+            <article>
+                <div class="post">
+                    <h1>VANILLAJS ONLY SIDE BAR (SIMPLE STEPS) </h1>
+					<hr>
+                <aside class="box author"> 
+                        <img src="../images/siphamandla.jpg" alt="Author"   class="circ-img-text"> 
+                        <b>Author:Mbokazi Siphamandla</b> 
+                </aside>
+
+                    <p class="introduction"> 
+                        Typical sidebar make use JQuery library or other JS libraries, but this can be done easily with just few lines of vanilla JavaScript. In this demonstration
+                        I will show you how to build an animated sidebar.
+						<br>
+                        <a href="../examples/sidebar.html" >VIEW DEMO</a>
+                        <a href="../examples/sidebar.zip" >DOWNLOAD SOURCE</a>
+                    </p>
+                </div>
+                <div class="body box" >
+                    <h2>I. HTML</h2>
+                    <h3>Navigation with Icon and Menu List</h3>
+                    <p>
+                        The HTML will be simple as having a navigation (id<code>#sideNav</code>
+                        ) element with only TWO elements inside.
+                        These elements are a div (with three span element used as an icon) which can be replace
+                        with a font awesome icon if you like.<br>
+                        The second element inside navigation is a simple unordered list with anchor tags used for menu items.
+                        
+                    </p>
+						
+                    <h3>2. Listen to click event on Icon</h3>
+                    <p>The next step is to add onclick attribute on the div icon (<code>onclick="toggleSideBar()"</code>)
+                        so that a JavaScript function to toggle the hide and show of the side bar can be triggered,
+                        when then user clicks on the icon.
+                       
+                    </p>  
+   
+                    <h2>II. CSS</h2>
+                    <h3> 1. Style and Hide Side Nav</h3>
+                    <p>
+                        Give side navigation <code>position: fixed ;</code> to keep it fixed even when the page is scrolled.
+                        The second step is to hide the sidenav by default and only show the icon, we do this by shifting
+                        the side nav to the left side of the screen by using <code>left: -200px;</code>.Notice this
+                        -200px value is the same as the width of the actual side nav, therefore the whole side navis now
+                        hidden.<br>
+                        The <code>transition: all 500ms linear;</code> is used to smoothen the effect when side nav is 
+                        revealed.
+                    </p>
+<pre class="box"><code>  
+ #sideNav{
+  position: fixed;/*keep the side nav even when user scrolls the page*/
+  width:200px; /* The width of side Navigation*/
+  height: 100%; /*The full screen height*/
+  background: #444;
+  left: -200px;/* Hide side bar on left side of screen by default */
+  transition: all 500ms linear; /*Revealing animation*/
+}
+</code></pre>              
+                    <h3> 3.Create Active Class</h3>
+                    <p>
+                        Now create a class with the name active, the side navigation will be toggled to this class
+                        the user click the icon. The oppose shall then occurred to this class, which is, to should reveal
+                        the sidebar instead of hiding it. Now we use <code>left:0;</code> to shift the nav
+                        towards the screen from the left hand side.
+                    </p>
+<pre class="box"><code>  
+  #sideNav.active{
+    left: 0px; /*Reveal the sidebar by shifting the side to the right*/
+  }                            
+ </code></pre> 
+                    <blockquote>
+                        Now we will use JavaScript to toggle the side nav to active class to hide and show
+                        the side bar when user clicks the menu icon                   
+                     </blockquote>  
+                     <h3> 4.Create Menu Icon</h3>
+                     <p>
+                         Last step on CSS is to style the div that has three empty spans inside.
+                         We give it <code>left: 230px;</code>,200px is for hidden side bar and 30px for actual menu icon.
+                         The three spans takes the 30px left, having 5px of thickness and 3px between them vertically.
+                         We use <code>display: block;</code> so Each span line becomes a vertical list of spans.
+                     </p>
+<pre class="box"><code>  
+div{
+ position: absolute;
+ left: 230px; /*200px is for hidden side bar and 30px for actual menu icon*/
+ top:20px;
+}
+/*Three lines of span elements (with spaces in between forming menu icon)*/
+span{
+ display: block;/*Each span line becomes a vertical list (or block element)*/
+ width:30px; /*Actual width of the icon*/
+ height: 5px; /*small height enought to form  thickness of the lines*/
+ background-color: #151719;
+ margin: 3px 0;/*vertical spaces between the lines*/
+ }                          
+</code></pre> 
+                     <blockquote>
+                         You can use font awesome icons instead of using html to create yours.               
+                      </blockquote>    
+                      <h2>II. Vanilla JS</h2>
+                      <h3> 1.Toggle #siideNav to .active class</h3>
+                      <p>
+                        Finally on JS we create a function that is listened in the menu icon, we used
+                        <code>document.getElementById('#sideNav')</code> to get the side navigation bar
+                        and give it a class of .active using <code>.classList.toggle('active');</code>
+                        which reveals the side navigation.
+                      </p>
+<pre class="box"><code>  
+   function toggleSideBar(){
+    document.getElementById('sideNav').classList.toggle('active');
+	}
+ </code></pre>  
+                    </div>
+                </article>
+            </section>
+        </main>
+        <footer >
+            
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contacts">Contact Details</a>
+            <a href="https://www.facebook.com/gfab.ghettofabulous?"> <i class="fa fa-fw fa-facebook"></i> </a>
+       
+            <a href="https://twitter.com/SiphamandlaMbo7"><i class="fa fa-fw fa-twitter"> </i></a>
+                     
+           <a href="https://www.linkedin.com/in/sphamandla-mbokazi-413173178/"><i class="fa fa-fw fa-linkedin"> </i></a>
+        
+    </footer> 
+               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="./../js/smoothscroll.js"></script>	
+</body>
+</html>

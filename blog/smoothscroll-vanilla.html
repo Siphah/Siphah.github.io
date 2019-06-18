@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="icon" href="../favicon.icon">
+    <!-- Load an icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Cuprum|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>CROSSBROWSER SUPPORT CSS ONLY SMOOTH PAGE SCROLL (SIMPLE STEPS)</title>
+			     <link rel="shortcut icon" href="./../favicon.ico" type="image/x-icon">
+</head>
+<body>
+<header class = "header" >
+       <label class="mobile-menu" for="toggle">
+             <span></span>
+             <span></span>
+             <span></span>
+        </label>
+		<h1 class = "logo">Siphamandla</h1>
+        <input type="checkbox" name="" id ="toggle" value="" >	
+		<nav>
+            <nav>
+                <a href="../index.html" target="_blank" >Home</a>
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#portfolio">Portfolio</a>
+                <a href="../index.html#contacts">Contact Details</a>
+                <a href="../resume/Siphamandla.docx" class="resume">Resume</a>
+            </nav>
+        </nav>
+        <a href="#" id="scroll" style="display: none;"><span></span></a>
+    </header>
+    <main id="home">
+    <section>
+        <article>
+            <div class="post">
+                <h1>CROSSBROWSER SUPPORT VANILLA JAVASCRIPT ONLY SMOOTH PAGE SCROLL (SIMPLE STEPS)</h1>
+
+                  <hr>
+                <aside class="box author"> 
+                        <img src="../images/siphamandla.jpg" alt="Author"   class="circ-img-text"> 
+                        <b>Author:Mbokazi Siphamandla</b> 
+                </aside>
+
+                <p class="introduction">    
+                    Typical smooth page scroll make use Jquery library or other JS libraries, but this can be done easily with just few lines of vanilla JavaScript. In this demonstration
+                    I will show you how to build a animated smooth page scroll. Page scroll occurs when a user clicks to an anchor that has an href attribute with # and ID name of a certain element in the same web page. 
+                     <br>
+				    <a href="../examples/js-smoothscroll.html"  >VIEW DEMO</a>
+                    <a href="../examples/js-smoothscroll.zip"  >DOWNLOAD SOURCE</a>
+					<br>
+                </p>
+
+            </div>
+            <div class="body box">
+                <h2>I. HTML</h2>
+                <h3>1.HTML Mark-up</h3>
+                <p>
+                    Let's begin with nav element with at least three anchor tags inside. Each anchor tag has a href attribute with a unique id name like<code> href="#main-1" </code>. <code>main-1</code> is and ID name of an element in the same page which brings to second step which is to create three div elements.
+                    The first div will have <code>main-1</code> as an ID name like    <code>id="main-1"</code>.        
+                </p>  
+
+                <h2>II. CSS</h2> 
+                <h3>1.Full screen for divs </h3>
+                <p>
+                        Let’s give 100% value for both width and height of all the three div tags.
+                        We will also give different background colour for each div tag, for demonstration.
+                        No you can see the scroll effect when you click on any of the anchor tags in the nav bar. <br><br>
+                        This is the normal scroll behaviour which occurs when the user clicks on link with href attribute which targets the id attribute name of the element inside the web page.
+    
+                </p>  
+<pre class="box"><code>             
+div{
+ width:100%;
+ height:100%;
+ text-align: center;
+}
+div#main-1{background: blue;}
+div#main-2{background: rgb(123, 123, 167);}
+div#main-3{background: rgb(0, 162, 255);}                        
+</code></pre>
+<h2>III. JavaScript</h2> 
+<h3>1.Find all anchor tags in Page</h3>
+<p>
+    Let’s find all anchor tags in the web page and store the in constant variable - navLinks, 
+    using querySelectorAll.
+    <br>
+    Next, lets loop through navLinks array and store each anchor tag in variable named navLink using
+    foreach() and check if any anchor is clicked by using add event listener for click event.
+    Now if any of links in the nav is clicked, the function called smoothScroll is called.
+</p>  
+
+<pre class="box"><code>
+//all anchor tags
+const navLinks = document.querySelectorAll('a');
+
+//naLink = each link in navLinks array
+navLinks.forEach(navLink => navLink.addEventListener('click' , smoothScroll) );                     
+</code></pre>   
+                <h3>2.Prevent Normal scroll behavior(non-smooth)</h3>
+                <p>
+                    We will prevent the scroll behavior we have tested earlier because the whole point of this report
+                    is to animate the page scroll behavior for great user experience.
+                    See <code>event.preventDefault(); //Prevent normal scrolling behavavior when anchor is clicked</code>.
+                </p>  
+<pre class="box"><code>
+function smoothScroll(event){
+  event.preventDefault();
+}                    
+</code></pre> 
+<h3>3.Finding the vertical Position and height of scrolled element</h3>
+<p>
+    First lets find out which element scrolled, the clicked has href attribute, inside that href there is an id name with # symbol eg href="#main-1".
+    Lets use currentTarget.getAttribute to get that ID name,<code>linkAttribute = event.currentTarget.getAttribute('href');</code>.
+    <br> <br>
+    Let's use querySelector to grab that id, like scrolledElement = document.querySelector(linkAttribute); . 
+    <br>
+    Now let’s find the height from begin of the web page to when the page is current scrolled using <code>offsetTop</code>.Let's store this to variable named scrolledElHeight. <br> 
+    <br>
+    Let's find the current position vertically to which page is scrolled to. Let’s store this to variable named :- currentPosition.
+    <br>
+    Let's find difference between these heights and store it in variable called distance.
+ </p>  
+<pre class="box"> <code > 
+function smoothScroll(event){  
+// ID in href attribute of current clicked anchor tag.                                
+ linkAttribute = event.currentTarget.getAttribute('href');
+ 
+ //query select the ID name found in href
+ scrolledElement = document.querySelector(linkAttribute);
+
+ //Height from begin of page towards scrolled height   
+ scrolledElHeight = scrolledElement.offsetTop;  
+ 
+ //current scrolled position
+ const currentPosition = window.pageYOffset;    
+
+ //difference
+ const distance = scrolledElHeight - currentPosition;       
+}                    
+</code></pre> 
+<h3>4.Use window.requestAnimationFrame() for Smooth Scroll</h3>
+<p>
+        The function <code>window.requestAnimationFrame()</code> is used for animation, but it will need
+        some parameters like animating duration and those three height mentioned above(the scrolledElHeight,currentPosition and distance).
+        <br><br>
+        Duration in this case is 500ms,but we will set counter to null see,<code>let start = null;</code>
+        <br><br>
+        <code>window.requestAnimationFrame() </code> take a function called step as a parameter.
+        In the step function we have to conditions as if statement.<br><br>
+        1.Check if the counter (start varible) is not null, if true take the value and store it in
+        variable called timestamp.<br>
+        The difference between timestamp and start time is our elapsed time frame, or progress.
+        <br><br>
+        2.if the progress time is not equal to duration(0.5s) ,we then keep running  <code>window.requestAnimationFrame(step)
+        </code>  <br>
+        Finally step is to use <code>window.scrollTo()  </code>.Now this function will make use 
+        of those three height mentioned above(the scrolledElHeight,currentPosition and distance) in it's 
+        formula as parameters, see <code>window.scrollTo( 0 , distance*(progress/duration) + currentPosition);</code> . <br>
+        The 0 parameter is for horizontal axes which are not required in this example. <br><br>
+        This function will facilitate the scroll to desired element with help of  <code>window.requestAnimationFrame(step);</code> 
+        for animation.       
+
+                    </p>  
+<pre class="box"><code>
+ // starting animation delay
+ let start = null;                            
+ 
+ //smooth animation delay 0.5seconds
+ const duration = 500; 
+
+ //animation function
+ window.requestAnimationFrame(step);
+
+function step(timestamp){
+ 
+    //if start is null,let start = timestamp 
+ if(!start) start  = timestamp; 
+ //ellapsed time frame
+ 
+ const progress = timestamp - start; 
+ window.scrollTo( 0 , distance*(progress/duration) + currentPosition);
+
+if(progress < duration){
+//run requestAnimationFrame(step) until duration complete 
+  window.requestAnimationFrame(step);         
+ }
+} 
+</code></pre>
+            </div>
+        </article>
+    </section>
+</main> 
+<footer >
+            
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contacts">Contact Details</a>
+    <a href="https://www.facebook.com/gfab.ghettofabulous?"> <i class="fa fa-fw fa-facebook"></i> </a>
+
+    <a href="https://twitter.com/SiphamandlaMbo7"><i class="fa fa-fw fa-twitter"> </i></a>
+             
+   <a href="https://www.linkedin.com/in/sphamandla-mbokazi-413173178/"><i class="fa fa-fw fa-linkedin"> </i></a>
+               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="./../js/smoothscroll.js"></script>
+
+</footer> 	
+</body>
+</html>
