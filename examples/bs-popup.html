@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="shortcut icon" href="./../favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <nav class="navbar navbar-inverse" style="margin:0 !important; width:100% !important; border-radius:0 !important;border:0">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#">LOGO-ZATE</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Language<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Spanish</a></li>
+                  <li><a href="#">English</a></li>
+                  <li><a href="#">IsiZulu</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Busness Associates</a></li>
+              <li><a href="#">Affiliates</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+<div class="container" style="color:#ccc; background:rgba(6, 43, 207, 0.5); margin-top:15%; padding:30px 5%">
+  <h2>Demonstration of Simple Modal</h2>
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="background:#444">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"><a class="navbar-brand" href="#">LOGO-ZATE</a></h4>
+        </div>
+        <div class="modal-body">
+          <p style="color:#444">How can we help you today?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" style="color:rgb(0, 153, 255)" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+
+
+</body>
+</html>
